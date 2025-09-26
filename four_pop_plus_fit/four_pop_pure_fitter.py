@@ -656,8 +656,10 @@ np.savetxt('overal_C_mix.csv', X=np.array([time_data, C_mix_norm_avg, C_mix_norm
 
 ################# plotting together #####################
 plt.figure()
-err1 = plt.errorbar(time_data, WT_norm_avg, xerr=0*time_data, yerr=WT_norm_err, fmt='o', color='m', ecolor='m', capsize=2, label='pure WT')
-err2 =plt.errorbar(time_data, C_norm_avg, xerr=0*time_data, yerr=C_norm_err, fmt='o', color='g', ecolor='g', capsize=2, label='pure C')
+# err1 = plt.errorbar(time_data, WT_norm_avg, xerr=0*time_data, yerr=WT_norm_err, fmt='o', color='m', ecolor='m', capsize=2, label='pure WT')
+# err2 =plt.errorbar(time_data, C_norm_avg, xerr=0*time_data, yerr=C_norm_err, fmt='o', color='g', ecolor='g', capsize=2, label='pure C')
+err1 = plt.errorbar(time_data, WT_norm_avg,  yerr=WT_norm_err, fmt='o', color='m', ecolor='m', capsize=2, label='pure WT')
+err2 =plt.errorbar(time_data, C_norm_avg,  yerr=C_norm_err, fmt='o', color='g', ecolor='g', capsize=2, label='pure C')
 
 err1_handle = err1.lines[0]
 err2_handle = err2.lines[0]
@@ -667,8 +669,10 @@ time_fit = np.linspace(np.min(time_data),np.max(time_data), 1000)
 line3, =plt.plot(time_fit, np.exp(WT_slope*time_fit) , color='m', label='fit: '+r'$\beta = $'+f'{WT_slope:.4f} ±{WT_slope_ERR:.4f}', linestyle='--')
 line4, =plt.plot(time_fit, np.exp(C_slope*time_fit) , color='g', label='fit: '+r'$\beta = $'+f'{C_slope:.4f} ±{C_slope_ERR:.4f}', linestyle='--')
 
-err3 = plt.errorbar(time_data, WT_mix_norm_avg, xerr=0*time_data, yerr=WT_mix_norm_err, fmt='s', color='m', ecolor='m', capsize=2, label='mixed WT', mfc='none')
-err4 =plt.errorbar(time_data, C_mix_norm_avg, xerr=0*time_data, yerr=C_mix_norm_err, fmt='s', color='g', ecolor='g', capsize=2, label='mixed C', mfc='none')
+# err3 = plt.errorbar(time_data, WT_mix_norm_avg, xerr=0*time_data, yerr=WT_mix_norm_err, fmt='s', color='m', ecolor='m', capsize=2, label='mixed WT', mfc='none')
+# err4 =plt.errorbar(time_data, C_mix_norm_avg, xerr=0*time_data, yerr=C_mix_norm_err, fmt='s', color='g', ecolor='g', capsize=2, label='mixed C', mfc='none')
+err3 = plt.errorbar(time_data, WT_mix_norm_avg, yerr=WT_mix_norm_err, fmt='s', color='m', ecolor='m', capsize=2, label='mixed WT', mfc='none')
+err4 =plt.errorbar(time_data, C_mix_norm_avg, yerr=C_mix_norm_err, fmt='s', color='g', ecolor='g', capsize=2, label='mixed C', mfc='none')
 
 err3_handle = err3.lines[0]
 err4_handle = err4.lines[0]

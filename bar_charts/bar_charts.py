@@ -27,16 +27,21 @@ scatter_err2 = [1, 1]
 # Define custom x-positions to group bars: (group 1 near each other, group 2 farther away)
 x2 = np.array([0.3, 1.5])
 
-# G0
+
 categories3 = ['pure WT', 'mixed WT']
 values3 = [47, 30]
 errors3 = [2,2]
 x3 = np.array([0, 1.2])
 
 
+FUCCI_color = '#0072B2'
+EdU_color = '#E69F00'
+model_color = '#e32782' 
+whister_color = 'k'
 
+# G0
 values4 = [20, 29]
-errors4 = [2, 2]
+errors4 = [2, 2.2]
 scatter_y4 = [20, 30]
 scatter_err4 = [1, 1]
 
@@ -47,19 +52,19 @@ x1 = 0.5*np.arange(len(categories1))
 fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(10, 4), sharey=False, constrained_layout=True)
 
 # Bar chart 1
-ax1.bar(x1, values1, yerr=errors1, capsize=5, alpha=0.6, label='exp (FUCCI2)', width=bar_width, color='b')
-ax1.errorbar(x1, scatter_y1, yerr=scatter_err1, fmt='o', color='red', capsize=10, label='model', markersize=10)
-ax1.plot(x1, scatter_y1, color='red', linewidth=1, linestyle='--')
+ax1.bar(x1, values1, yerr=errors1, capsize=5, alpha=0.6, label='exp (FUCCI2)', width=bar_width, color=FUCCI_color)
+ax1.errorbar(x1, scatter_y1, yerr=scatter_err1, fmt='o', color=model_color, capsize=10, label='model', markersize=10)
+ax1.plot(x1, scatter_y1, color=model_color, linewidth=1, linestyle='--')
 ax1.set_xticks(x1)
-ax1.set_xticklabels(categories1, fontsize=15)
-ax1.set_ylabel('G1 percentage', fontsize=15)
-ax1.tick_params(axis='y', labelsize=15)
-ax1.legend(fontsize=15)
+ax1.set_xticklabels(categories1, fontsize=18)
+ax1.set_ylabel('G1 percentage', fontsize=18)
+ax1.tick_params(axis='y', labelsize=18)
+ax1.legend(fontsize=18)
 
 
 
 # Bar chart 2 (with custom spacing)
-ax2.bar(x2, values2, yerr=errors2, capsize=5, alpha=0.6, label='exp (FUCCI2)', width=bar_width, color ='b')
+ax2.bar(x2, values2, yerr=errors2, capsize=5, alpha=0.6, label='exp (FUCCI2)', width=bar_width, color =FUCCI_color)
 # ax2.errorbar(x2, scatter_y2, yerr=scatter_err2, fmt='o', color='blue', capsize=5, label='Scatter')
 # ax2.set_xticks(x2)
 # ax2.set_xticklabels(categories2, fontsize=15)
@@ -69,24 +74,24 @@ ax2.bar(x2, values2, yerr=errors2, capsize=5, alpha=0.6, label='exp (FUCCI2)', w
 # ax2.legend(fontsize=15)
 
 # Bar chart 2 (with custom spacing)
-ax2.bar(x3, values3, yerr=errors3, capsize=5, alpha=0.6, label='exp (EdU/pH3)', width=bar_width, color = 'r')
-ax2.errorbar(0.5*(x2+x3), scatter_y2, yerr=scatter_err2, fmt='o', color='r', capsize=10, label='model', markersize=10)
-ax2.plot(0.5*(x2+x3), scatter_y2, color='r', linewidth=1, linestyle='--')
+ax2.bar(x3, values3, yerr=errors3, capsize=5, alpha=0.6, label='exp (EdU/pH3)', width=bar_width, color = EdU_color)
+ax2.errorbar(0.5*(x2+x3), scatter_y2, yerr=scatter_err2, fmt='o', color=model_color, capsize=10, label='model', markersize=10)
+ax2.plot(0.5*(x2+x3), scatter_y2, color=model_color, linewidth=1, linestyle='--')
 ax2.set_xticks(0.5*(x2+x3))
-ax2.set_xticklabels(categories2, fontsize=15)
-ax2.set_ylabel('S/G2/M percentage', fontsize=15)
-ax2.tick_params(axis='y', labelsize=15)
-ax2.legend(fontsize=15)
+ax2.set_xticklabels(categories2, fontsize=18)
+ax2.set_ylabel('S/G2/M percentage', fontsize=18)
+ax2.tick_params(axis='y', labelsize=18)
+ax2.legend(fontsize=18)
 
 # Bar chart 2 (with custom spacing)
-ax3.bar(x1, values4, yerr=errors4, capsize=5, alpha=0.6, label='exp (FUCCI2)', width=bar_width, color = 'b')
-ax3.errorbar(x1, scatter_y4, yerr=scatter_err4, fmt='o', color='r', capsize=10, label='model', markersize=10, alpha=0.6)
-ax3.plot(x1, scatter_y4, color='r', linewidth=1, linestyle='--')
+ax3.bar(x1, values4, yerr=errors4, capsize=5, alpha=0.6, label='exp (FUCCI2)', width=bar_width, color = FUCCI_color)
+ax3.errorbar(x1, scatter_y4, yerr=scatter_err4, fmt='o', color=model_color, capsize=10, label='model', markersize=10, alpha=1)
+ax3.plot(x1, scatter_y4, color=model_color, linewidth=1, linestyle='--')
 ax3.set_xticks(x1)
-ax3.set_xticklabels(categories3, fontsize=15)
-ax3.set_ylabel('G0 percentage', fontsize=15)
-ax3.tick_params(axis='y', labelsize=15)
-ax3.legend(fontsize=15)
+ax3.set_xticklabels(categories3, fontsize=18)
+ax3.set_ylabel('G0 percentage', fontsize=18)
+ax3.tick_params(axis='y', labelsize=18)
+ax3.legend(fontsize=18)
 
 # Layout and show
 # plt.tight_layout()
@@ -95,7 +100,7 @@ ax3.legend(fontsize=15)
 handles, labels = ax2.get_legend_handles_labels()
 
 # Add a single legend for the whole figure
-fig.legend(handles, labels, loc='upper center', ncol=3, fontsize=15, frameon=True, bbox_to_anchor=(0.5, 1.02))
+fig.legend(handles, labels, loc='upper center', ncol=3, fontsize=18, frameon=True, bbox_to_anchor=(0.5, 1.02))
 
 # Optionally remove individual legends
 ax1.legend().remove()

@@ -76,8 +76,8 @@ ax.set_xlabel(r'$\tilde{\alpha}$', fontsize=20)
 # ax.set_ylabel('Uptake Rate', fontsize=20)
 ax.set_ylabel(r'$\tilde{v}_{\mathrm{G1}}$', fontsize=20)
 
-plt.xticks(fontsize=15)
-plt.yticks(fontsize=15)
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
 # plt.xlabel(fontsize=20)
 # plt.ylabel(fontsize=20)
 
